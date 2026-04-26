@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 
+const BASE_URL = "https://pdf-reader-ai-nofr.onrender.com";
+
 const API = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: BASE_URL,
   timeout: 60000
 });
 

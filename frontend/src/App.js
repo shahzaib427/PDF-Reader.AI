@@ -42,11 +42,10 @@ export default function App() {
   const [ready, setReady] = useState(false);
   const bottomRef = useRef();
 
-  const scrollBottom = useCallback(() => {
+  // Fixed: scroll functionality directly in useEffect
+  useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
-
-  useEffect(() => { scrollBottom(); }, [messages, loading]);
+  }, [messages, loading]);
 
   useEffect(() => {
     (async () => {

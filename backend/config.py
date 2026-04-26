@@ -25,9 +25,11 @@ class Settings(BaseSettings):
     CHUNK_OVERLAP_WORDS: int = 100
     ALLOWED_ORIGINS: str = "http://localhost:3000,http://localhost:5173"
 
-    @property
-    def origins(self) -> List[str]:
-        return [o.strip() for o in self.ALLOWED_ORIGINS.split(",")]
+@property
+def origins(self) -> List[str]:
+    if self.ALLOWED_ORIGINS.strip() == "*":
+        return ["*"]
+    return [o.strip() for o in self.ALLOWED_ORIGINS.split(",")]
 
     class Config:
         env_file = str(BASE_DIR / ".env")

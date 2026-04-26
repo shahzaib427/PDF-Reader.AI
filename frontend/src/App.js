@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
 import './index.css';
 import { useSession } from './hooks/useSession';
 import { sendChat, getHistory, clearChat, getSessionInfo, setName, getMe } from './utils/api';
